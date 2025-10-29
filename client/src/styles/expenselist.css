@@ -1,0 +1,66 @@
+.expense-list {
+  animation: fadeIn 0.5s ease;
+}
+.expense-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 2px solid var(--border-color);
+}
+.expense-list-header h2 { margin: 0; }
+.expense-total {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+}
+.expense-total strong {
+  color: var(--primary-color);
+  font-size: var(--font-size-xl);
+}
+.expense-date-group {
+  margin-bottom: var(--spacing-2xl);
+}
+.expense-date {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-color);
+}
+.expense-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+@media (max-width: 768px) {
+  .expense-list-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2em;
+  gap: 1.2em;
+}
+.pagination button {
+  border: none;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 0.68em 1.34em;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.1s;
+}
+.pagination button:disabled {
+  background: #e5e9f2;
+  color: var(--text-secondary);
+  cursor: not-allowed;
+}

@@ -1,0 +1,31 @@
+.btn {
+  background: var(--primary-color);
+  color: var(--text-white);
+  padding: 0.6em 1.4em;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background .18s, transform .08s;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  outline: none;
+  margin: 0.2em;
+  min-width: 120px;
+}
+
+.btn:hover, .btn:focus {
+  background: var(--primary-dark);
+  transform: translateY(-2px) scale(1.02);
+}
+
+@media (max-width: 600px) {
+  .btn {
+    width: 100%;
+    min-width: 0;
+    font-size: 1rem;
+    padding: 0.9em 0.2em;
+    box-sizing: border-box;
+    margin-top: 8px;
+  }
+}

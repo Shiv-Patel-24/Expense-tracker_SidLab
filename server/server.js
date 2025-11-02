@@ -48,23 +48,23 @@
 //   console.log(` Client URL: ${process.env.CLIENT_URL}\n`);
 // });
 
-const express = require("express");
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-const cors = require("cors");
-const connectDB = require("./config/db");
-const authRoutes = require("./routes/authRoutes");
-const expenseRoutes = require("./routes/expenseRoutes");
-const errorMiddleware = require("./middleware/errorMiddleware");
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import connectDB from './config/db.js';
+import authRoutes from './routes/authRoutes.js';
+import expenseRoutes from './routes/expenseRoutes.js';
+import errorMiddleware from './middleware/errorMiddleware.js';
 
 dotenv.config();
 connectDB();
 
 const app = express();
 
-// ✅ FIXED CORS Configuration - MUST BE BEFORE OTHER MIDDLEWARE
+// ✅ CORS Configuration - MUST BE BEFORE OTHER MIDDLEWARE
 const allowedOrigins = [
-  "https://expense-tracker-sid-lab.vercel.app",  // ⚠️ NO /login or /register path!
+  "https://expense-tracker-sid-lab.vercel.app",
   "http://localhost:5173",
   "http://localhost:3000"
 ];
@@ -112,3 +112,4 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT} in ${process.env.NODE_ENV || 'development'} mode`);
 });
+

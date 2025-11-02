@@ -48,14 +48,13 @@
 //   console.log(` Client URL: ${process.env.CLIENT_URL}\n`);
 // });
 
-const express = require("express");
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-const cors = require("cors");
-const connectDB = require("./config/db");
-const authRoutes = require("./routes/authRoutes");
-const expenseRoutes = require("./routes/expenseRoutes");
-const errorMiddleware = require("./middleware/errorMiddleware");
+import express from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import connectDB from './config/db.js';
+import authRoutes from './routes/authRoutes.js';
+import expenseRoutes from './routes/expenseRoutes.js';
+import { errorHandler, notFound } from './middleware/errorMiddleware.js'; // ✅ FIXED: Named imports
 
 dotenv.config();
 connectDB();
@@ -106,11 +105,10 @@ app.get("/", (req, res) => {
 });
 
 // Error handling middleware - MUST BE LAST
-app.use(errorMiddleware);
+app.use(notFound);
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT} in ${process.env.NODE_ENV || 'development'} mode`);
 });
-
-module.exports = app;
